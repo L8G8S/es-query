@@ -1,0 +1,124 @@
+<html>
+<head>
+    <style type="text/css">
+        .main{
+            border: 1px solid #c0c0c0;
+            padding: 1em;
+
+            position:relative;
+            top:10px; left:15px;
+        }
+
+        .footer{
+            position:relative;
+            top:2em; left:15px;
+        }
+
+
+        .purple-border{
+            border: 1px solid purple;
+        }
+
+        .yellow-border{
+            border: 1px solid yellow;
+        }
+
+        .black-border{
+            border: 1px solid black;
+        }
+
+        .highlight{
+            color: red;
+        }
+
+    </style>
+    <script src="scripts/TypeExtender.js"></script>
+    <script src="scripts/DomManager.js"></script>
+    <script src="scripts/EventManager.js"></script>
+    <script src="scripts/CssManager.js"></script>
+    <script>
+        /*
+         http://es6-features.org/
+         https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Classes
+         https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object
+         http://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/
+
+         http://www.2ality.com/2015/02/es6-classes-final.html
+         http://www.2ality.com/2013/07/es6-modules.html
+        */
+
+        var $ = selector => new DomManager(selector);
+
+        //console.log($);
+
+        $(document).on("DOMContentLoaded", function(){
+            //console.log($(".main"));
+            //console.log($("#main"));
+            //console.log($(".line"));
+
+            //console.log($("#main").find("input"));
+
+            //console.log($("#main").children());
+            //console.log($("#main").children(".line"));
+
+            //console.log($("#main").parent());
+            //console.log($("#toto").parent());
+
+            //console.log($("input:first-of-type").closest("body"));
+
+            //console.log($("#main").width);
+            //console.log($("#main").height);
+            //console.log($("#main").size);
+
+            //$("#main").width = 300;
+            //console.log($("#main").width === 300);
+
+            //console.log($("#main").x);
+            //console.log($("#main").y);
+            //console.log($("#main").offset);
+
+            //$("#main").x = 30;
+            //console.log($("#main").x === 30);
+            //$("#main").x = 0;
+            //console.log($("#main").x === 0);
+
+            //$("#main").on("click", function(){console.log("pass")})
+            //          .trigger("click");
+
+            //$("#main").addClass('black-border highlight');
+
+            //$("#main").find('.purple-border').removeClass('purple-border');
+
+            //console.log($("#main").css("border-width"));
+            //$("#main").css("border-width", 2);
+            //$("#main").css({ "border-width" : 4 });
+
+            //$("#main").append("<div style='border: 1px solid red'>test append</div>");
+            //$("#main").prepend("<div class='yellow-border'>test prepend</div>");
+
+            $("<div class='yellow-border'>test appendTo</div>").appendTo('#main');
+            $("<div style='border: 1px solid red'>test prependTo</div>").prependTo('#main');
+        });
+    </script>
+</head>
+<body>
+    <div class="main" id="main">
+        <div class="line" data-index="0">
+            <span>Text 1</span>
+            <input type="text" value="" name="t1"/>
+        </div>
+        <div class="line" data-index="1">
+            <span>Text 2</span>
+            <input type="text" value="" name="t2"/>
+        </div>
+        <div class="line purple-border" data-index="2">
+            <span>Text 3</span>
+            <input type="text" value="" name="t3"/>
+        </div>
+    </div>
+    <div class="footer">
+        <span>Text 4</span>
+        <input type="text" value="" name="t43"/>
+    </div>
+</body>
+</html>
